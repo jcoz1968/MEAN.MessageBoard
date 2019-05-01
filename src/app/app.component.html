@@ -3,8 +3,11 @@
         <mat-card-title>Post New Message</mat-card-title>
       </mat-card-header>
   <form>
-    <mat-form-field>
+    <mat-form-field class="example-full-width">
       <textarea name="message" [(ngModel)]="message" matInput placeholder="Message Body" value=""></textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input name="username" matInput placeholder="User Name" [(ngModel)]="username" />
     </mat-form-field>
   </form>
   <mat-card-actions>

@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   message = '';
   messages = [];
+  username = '';
 
   constructor(private http: HttpClient) {
   }
@@ -20,6 +21,6 @@ export class AppComponent implements OnInit {
 
   post() {
     console.log(this.message);
-    this.http.post('http://localhost:3000/api/message', this.message).toPromise();
+    this.http.post('http://localhost:3000/api/message', { msg: this.message, username: this.username }).toPromise();
   }
 }
