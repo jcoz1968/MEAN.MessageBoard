@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -6,11 +6,16 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   message = '';
+  messages = [];
 
   constructor(private http: HttpClient) {
+  }
 
+  async ngOnInit() {
+    this.messages = (await this.http.get('http://localhost:3000/api/message').toPromise()) as any[];
+    console.log(this.messages);
   }
 
   post() {

@@ -1,4 +1,7 @@
 <mat-card>
+    <mat-card-header>
+        <mat-card-title>Post New Message</mat-card-title>
+      </mat-card-header>
   <form>
     <mat-form-field>
       <textarea name="message" [(ngModel)]="message" matInput placeholder="Message Body" value=""></textarea>
@@ -7,4 +10,13 @@
   <mat-card-actions>
     <button (click)="post(message)" mat-button>POST</button>
   </mat-card-actions>
+</mat-card>
+<br />
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Messages</mat-card-title>
+  </mat-card-header>
+  <mat-list role="list">
+    <mat-list-item *ngFor="let message of messages" role="listitem">{{message.msg}}</mat-list-item>
+  </mat-list>
 </mat-card>
